@@ -12,20 +12,25 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 var table = "Movies";
 
-var year_val = 2015;
-var title = "The Big New Movie";
+var year_val = 1991;
+//var title = "The Big New Movie";
+var title = "Movie with map attribute";
 
 var params = {
 	TableName : table,
 	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
-	//KeyConditionExpression : 'yearkey = :hkey',
+	FilterExpression : 'records.K1 = :recordsK1Value and records.K2 = :recordsK2Value',
+	ProjectionExpression : 'records.K1, records.K2',
 	/*ExpressionAttributeNames : {
-		':yearKey' : 'year'
+		'#recordsK1' : 'records.K1'
 
 	},*/
 	ExpressionAttributeValues : {
 		':hkey' : year_val,
-		':rkey' : 'The Big New Movie'
+		':rkey' : title,
+		//":recordsK1Value" : {"S" : "V1"}
+		":recordsK1Value" : "V1",
+		":recordsK2Value" : "V2"
 	}
 };
 

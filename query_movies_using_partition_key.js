@@ -12,21 +12,16 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 var table = "Movies";
 
-var year_val = 2015;
+var year_val = 2012;
 var title = "The Big New Movie";
 
 var params = {
 	TableName : table,
-	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
-	//KeyConditionExpression : 'yearkey = :hkey',
-	/*ExpressionAttributeNames : {
-		':yearKey' : 'year'
-
-	},*/
+	KeyConditionExpression : 'yearkey = :hkey',
 	ExpressionAttributeValues : {
-		':hkey' : year_val,
-		':rkey' : 'The Big New Movie'
-	}
+		':hkey' : year_val
+	},
+	ScanIndexForward : false
 };
 
 docClient.query(params, function(err, data) {

@@ -18,14 +18,9 @@ var title = "The Big New Movie";
 var params = {
 	TableName : table,
 	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
-	//KeyConditionExpression : 'yearkey = :hkey',
-	/*ExpressionAttributeNames : {
-		':yearKey' : 'year'
-
-	},*/
 	ExpressionAttributeValues : {
 		':hkey' : year_val,
-		':rkey' : 'The Big New Movie'
+		':rkey' : title
 	}
 };
 

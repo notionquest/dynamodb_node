@@ -12,8 +12,8 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 var params = {
 		TableName : "Movies",
 		Key : {
-			"yearkey" : 2016,
-			"title" : "The Big New Movie"
+			"yearkey" : 2014,
+			"title" : "The Big New Movie 2"
 		}
 		
 	};

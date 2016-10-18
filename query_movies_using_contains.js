@@ -12,20 +12,22 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 var table = "Movies";
 
-var year_val = 2015;
-var title = "The Big New Movie";
+var year_val = 1992;
+var title = "Movie with list attribute";
 
 var params = {
 	TableName : table,
 	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
-	//KeyConditionExpression : 'yearkey = :hkey',
+	FilterExpression : 'contains (records, :recordsK1Value)',
+	ProjectionExpression : 'records[0], records[1]',
 	/*ExpressionAttributeNames : {
-		':yearKey' : 'year'
+		'#recordsK1' : 'records.K1'
 
 	},*/
 	ExpressionAttributeValues : {
 		':hkey' : year_val,
-		':rkey' : 'The Big New Movie'
+		':rkey' : title,
+		":recordsK1Value" : "K1",
 	}
 };
 

@@ -12,34 +12,19 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 //Scanning the item of type 'SS' using IN 
 /*var params = {
     TableName: "Movies",    
-    //FilterExpression: "product IN (:productvalue)",
-    FilterExpression: "title IN (:productvalue1, :productvalue2)",
+    FilterExpression: "product IN (:productvalue)",
     ExpressionAttributeValues: {
-         //":productvalue": docClient.createSet(["The Big New Movie 2012"]),
-    	":productvalue1": "The Big New Movie 2012",
-    	":productvalue2": "The Big New Movie",
-    	//":productvalue": "The Big New Movie 2012",
+         ":productvalue": docClient.createSet(["milk", "veg"]),
     }
 };*/
 var params = {
-	    TableName: "Movies",    
-	    FilterExpression: "title IN (:titlevalue1, :titlevalue2)",
-	    ExpressionAttributeValues: {
-	    	":titlevalue1": "The Big New Movie 2012",
-	    	":titlevalue2": "The Big New Movie",
-
-	    }
-	};
-
-
-/*var params = {
     TableName: "Movies",    
-    FilterExpression: "title = :title1 OR title = :title2",
+    FilterExpression: "createdate BETWEEN :date1 and :date2",
     ExpressionAttributeValues: {
-         ":title1": "The Big New Movie 1",
-		 ":title2": "The Big New Movie 2",
+         ":date1": "2010-05-05",
+		 ":date2": "2011-10-04",
     }
-};*/
+};
 
 console.log("Scanning Movies table.");
 docClient.scan(params, onScan);
