@@ -9,15 +9,17 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Videos";
+var table = "users";
 
 var params = {
     TableName:table,
     Item:{
-        "videoid": "2",
-        "category": "Thriller",       
-        "ArtistName" : "Chris 1",
-        "VideoTitle" : "Action Movie",
+        "username": "bbbbbbb",
+        "passwordSalt": "khdsfkghdsk",        
+        "createdAt": "2016-11-07",
+        "deleted" : false,
+        "email" : "abc@gmail.com",
+        "updatedAt" : "2016-11-07"	
     }    
 };
 

@@ -1,23 +1,26 @@
 var AWS = require("aws-sdk");
-var creds = new AWS.Credentials('akid', 'secret', 'session');
 
 AWS.config.update({
   region: "us-west-2",
-  endpoint: "http://localhost:8000",
-  credentials : creds
+  endpoint: "http://localhost:8000"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Videos";
+var table = "events";
+
+var year = 2015;
+var title = "The Big New Movie";
 
 var params = {
     TableName:table,
     Item:{
-        "videoid": "2",
-        "category": "Thriller",       
-        "ArtistName" : "Chris 1",
-        "VideoTitle" : "Action Movie",
+        "quid": '100',
+        "objectType": 'event',
+        "document":{
+            "externalID": "12-34-567890",
+            "eventFormat": 0
+        }
     }    
 };
 

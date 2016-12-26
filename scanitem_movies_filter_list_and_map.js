@@ -9,21 +9,14 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-//Scanning the item of type 'SS' using IN 
-/*var params = {
-    TableName: "Movies",    
-    FilterExpression: "product IN (:productvalue)",
-    ExpressionAttributeValues: {
-         ":productvalue": docClient.createSet(["milk", "veg"]),
-    }
-};*/
 var params = {
-    TableName: "Movies",    
-    FilterExpression: "createdate BETWEEN :date1 and :date2",
-    ExpressionAttributeValues: {
-         ":date1": "2010-05-05",
-		 ":date2": "2011-10-05",
-    }
+	    TableName: "Movies",    
+	    FilterExpression: "contains (#users, :usersDetails)",
+	    ExpressionAttributeNames: { '#users'  : 'users'},
+	    ExpressionAttributeValues: {
+	    	":usersDetails": {'user_id' : 'xxx', 'share' : 1}
+
+	    }
 };
 
 console.log("Scanning Movies table.");

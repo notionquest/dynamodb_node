@@ -34,9 +34,12 @@ var params = {
 docClient.query(params, function(err, data) {
 	if (err) {
 		console.error("Unable to read item. Error JSON:", JSON.stringify(err,
-				null, 2));		
+				null, 2));
 	} else {
 		console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-		
+		console.log ("Length of the list :",  data.Items[0].records.length);
+		data.Items.forEach(function(itemValue) {
+			console.log ("Last element in the array :",itemValue.records[itemValue.records.length - 1]);
+		});		
 	}
 });

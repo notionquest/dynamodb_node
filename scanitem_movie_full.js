@@ -9,25 +9,13 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-//Scanning the item of type 'SS' using IN 
-/*var params = {
-    TableName: "Movies",    
-    FilterExpression: "product IN (:productvalue)",
-    ExpressionAttributeValues: {
-         ":productvalue": docClient.createSet(["milk", "veg"]),
-    }
-};*/
 var params = {
-    TableName: "Movies",    
-    FilterExpression: "createdate BETWEEN :date1 and :date2",
-    ExpressionAttributeValues: {
-         ":date1": "2010-05-05",
-		 ":date2": "2011-10-05",
-    }
+    TableName: "Movies"
 };
 
 console.log("Scanning Movies table.");
 docClient.scan(params, onScan);
+var count = 0;
 
 function onScan(err, data) {
     if (err) {
@@ -36,7 +24,7 @@ function onScan(err, data) {
         // print all the movies
         console.log("Scan succeeded.");
         data.Items.forEach(function(movie) {
-           console.log("Item :", JSON.stringify(movie));
+           console.log("Item :", ++count,JSON.stringify(movie));
         });
 
         // continue scanning if we have more movies

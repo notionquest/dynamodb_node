@@ -9,15 +9,17 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Videos";
+var table = "files";
+
 
 var params = {
     TableName:table,
     Item:{
-        "videoid": "2",
-        "category": "Thriller",       
-        "ArtistName" : "Chris 1",
-        "VideoTitle" : "Action Movie",
+    	"fileName" : "file3",
+    	"userEmail" : "file3@gmail.com",
+    	"transcription" : "transcription text",
+    	"features" : [{ "relevance":  "0.900906", "text":  "keyword"}]
+        
     }    
 };
 

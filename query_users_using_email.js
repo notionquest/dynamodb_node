@@ -10,33 +10,24 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Movies";
+var table = "users";
 
-var year_val = 1992;
-var title = "Movie with list attribute";
 
 var params = {
 	TableName : table,
-	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
-	FilterExpression : 'contains (records, :recordsK1Value)',
-	ProjectionExpression : 'records[0], records[1]',
-	/*ExpressionAttributeNames : {
-		'#recordsK1' : 'records.K1'
-
-	},*/
+	KeyConditionExpression : 'email = :email',
+	FilterExpression: 'deleted = :deleted',
 	ExpressionAttributeValues : {
-		':hkey' : year_val,
-		':rkey' : title,
-		":recordsK1Value" : "K1",
-	}
+		':email' : 'abc@gmail.com',
+		':deleted' :  false
+	}	
 };
 
 docClient.query(params, function(err, data) {
 	if (err) {
 		console.error("Unable to read item. Error JSON:", JSON.stringify(err,
-				null, 2));		
+				null, 2));
 	} else {
 		console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-		
 	}
 });

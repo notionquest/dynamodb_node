@@ -9,15 +9,16 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Videos";
+var table = "Movies";
+
+var year = 1999;
+var title = "List test title";
 
 var params = {
     TableName:table,
     Item:{
-        "videoid": "2",
-        "category": "Thriller",       
-        "ArtistName" : "Chris 1",
-        "VideoTitle" : "Action Movie",
+        "yearkey": year,
+        "title": title,
     }    
 };
 

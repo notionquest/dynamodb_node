@@ -9,15 +9,18 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Videos";
+var table = "Movies";
+
+var year = 1992;
+var title = "Movie with list of multiset";
+var recordObj = [docClient.createSet(["K1", "K2" ,"K3"]) , docClient.createSet(["K4", "K5" ,"K6"]) ];
 
 var params = {
     TableName:table,
     Item:{
-        "videoid": "2",
-        "category": "Thriller",       
-        "ArtistName" : "Chris 1",
-        "VideoTitle" : "Action Movie",
+        "yearkey": year,
+        "title": title,
+        "records" : recordObj
     }    
 };
 

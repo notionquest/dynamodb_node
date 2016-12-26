@@ -9,15 +9,22 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Videos";
+var table = "Movies";
+
+var year = 1992;
+var title = "Movie with list with map daily";
+var recordArray = []; 
+var user1 = {'test.com' : {'Impressions' : 3, 'Uniques' : 4}};
+
+recordArray.push(user1);
+
 
 var params = {
     TableName:table,
     Item:{
-        "videoid": "2",
-        "category": "Thriller",       
-        "ArtistName" : "Chris 1",
-        "VideoTitle" : "Action Movie",
+        "yearkey": year,
+        "title": title,
+        "daily" : recordArray
     }    
 };
 
