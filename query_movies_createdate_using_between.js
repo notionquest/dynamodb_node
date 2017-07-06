@@ -15,7 +15,7 @@ var table = "Movies";
 var year_val = 2010;
 var title = "The Big New Movie 2010";
 
-var params = {
+/*var params = {
 	TableName : table,
 	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
 	FilterExpression : 'createdate between :val1 and :val2',
@@ -24,6 +24,18 @@ var params = {
 		':rkey' : title,
 		":val1" : "2010-12-21T16:42:31-01:00",
 		":val2" : "2010-12-21T17:42:35-01:00"
+	}
+};*/
+
+var params = {
+	TableName : table,
+	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
+	FilterExpression : 'createdate between :val1 and :val2',
+	ExpressionAttributeValues : {
+		':hkey' : year_val,
+		':rkey' : title,
+		":val1" : "2010-12-21T16:42:31",
+		":val2" : "2010-12-21T17:42:35"
 	}
 };
 

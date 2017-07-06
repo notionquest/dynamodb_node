@@ -23,7 +23,7 @@ var params = {
         "yearkey": year,
         "title": title
     },
-    ProjectionExpression: 'records[0], records[1]',
+    ProjectionExpression: 'yearkey, title, records[0], records[1]',
     /*ExpressionAttributeNames: {
       '#users' : 'users[0]'
     },*/
@@ -34,6 +34,6 @@ docClient.get(params, function(err, data) {
         console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
     } else {
         console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-        console.log(data.Item.records.length);
+        //console.log(data.Item.records.length);
     }
 });

@@ -10,7 +10,7 @@ var fs = require('fs');
 var parse = require('csv-parse');
 
 var csvData=[];
-fs.createReadStream("C:\\Users\\sakumar\\Downloads\\FL_insurance_sample.csv")
+fs.createReadStream("C:\\Users\\myuser\\Downloads\\FL_insurance_sample.csv")
     .pipe(parse({delimiter: ':'}))
     .on('data', function(csvrow) {
         //console.log(csvrow);

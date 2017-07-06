@@ -16,7 +16,7 @@ var params = {
     },
     ExpressionAttributeValues: {
          ":start_yr": 1950,
-         ":end_yr": 1959 
+         ":end_yr": 2017 
     }
 };
 

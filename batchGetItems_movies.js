@@ -8,7 +8,8 @@ AWS.config.update({
 	credentials : creds
 });
 
-var dynamodb = new AWS.DynamoDB();
+//var dynamodb = new AWS.DynamoDB();
+var dynamodb = new AWS.DynamoDB({maxRetries: 5, retryDelayOptions: {base: 300} });
 
 var table = "Movies";
 

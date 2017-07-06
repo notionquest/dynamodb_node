@@ -16,7 +16,8 @@ var params = {
 				Item : {
 					"fileName" : "file1",
 					"userEmail" : "file1@gmail.com",
-					"transcription" : "transcription text",
+					"transcription" : "transcription text1",
+					"transcriptionnew" : "new transcription text1",
 					"features" : [ {
 						"relevance" : "0.900906",
 						"text" : "keyword"
@@ -28,7 +29,7 @@ var params = {
 				Item : {
 					"fileName" : "file2",
 					"userEmail" : "file2@gmail.com",
-					"transcription" : "transcription text",
+					"transcription" : "transcription text2",
 					"features" : [ {
 						"relevance" : "0.900906",
 						"text" : "keyword"
@@ -40,7 +41,7 @@ var params = {
 				Item : {
 					"fileName" : "file3",
 					"userEmail" : "file3@gmail.com",
-					"transcription" : "transcription text",
+					"transcription" : "transcription text3",
 					"features" : [ {
 						"relevance" : "0.900906",
 						"text" : "keyword"
@@ -52,7 +53,7 @@ var params = {
 				Item : {
 					"fileName" : "file4",
 					"userEmail" : "file4@gmail.com",
-					"transcription" : "transcription text",
+					"transcription" : "transcription text4",
 					"features" : [ {
 						"relevance" : "0.900906",
 						"text" : "keyword"

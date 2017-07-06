@@ -13,7 +13,9 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 var table = "Movies";
 
 var productSet = docClient.createSet( ["milk", "veg"]);
+//var productSet = docClient.createSet( ["jfjf"]);
 var productSetNotContains = docClient.createSet( ["egg"]);
+//var productSetNotContains = docClient.createSet( ["veg"]);
 
 var params = {
 	TableName : table,

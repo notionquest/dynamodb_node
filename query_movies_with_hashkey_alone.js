@@ -12,7 +12,7 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 var table = "Movies";
 
-var year_val = 2015;
+var year_val = 1992;
 var title = "The Big New Movie";
 
 var params = {

@@ -11,8 +11,9 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 var table = "Movies";
 
-var year = 2012;
-var title = "The Big New Movie 2012 2";
+var year = 2017;
+//var title = "The Big New Movie 2012 2";
+var title = "Callback test";
 var recordObj = {"K1": "V1" ,
 	    "K2": "V2" ,
 	    "K3": "V3" ,
@@ -22,20 +23,21 @@ var params = {
     TableName:table,
     Item:{
         "yearkey": year,
-        "title": title,
+        "title": title
         //"records" : recordObj
         /*"OrgName" : "org value",
         "Description" : "desc value"*/
-        "info":{
+        /*"info":{
             "plot": "Nothing happens at all.",
             "rating": 0
         },
         "createdate" : "2011-10-05",
 		"product" : docClient.createSet(['milk','veg'])
-       /* "past_visits" : 0,
+        "past_visits" : 0,
         "past_chats" : 0,
         "reset_time" : 1,*/
-    }    
+    },
+    ReturnValues : 'ALL_OLD'
 };
 
 console.log("Adding a new item...");

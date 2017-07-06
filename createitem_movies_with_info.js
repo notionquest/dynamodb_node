@@ -2,9 +2,9 @@ var AWS = require("aws-sdk");
 var creds = new AWS.Credentials('akid', 'secret', 'session');
 
 AWS.config.update({
-  region: "us-west-2",
-  endpoint: "http://localhost:8000",
-  credentials : creds
+    region: "us-west-2",
+    endpoint: "http://localhost:8000",
+    credentials: creds
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
@@ -13,19 +13,30 @@ var table = "Movies";
 
 var year = 1999;
 var title = "MyMovie BOOL";
-var info = {"Plot": "DynamoDB"};
+var info = { "Plot": "DynamoDB" };
+
+
 
 var params = {
-    TableName:table,
-    Item:{
-        "yearkey": year,
-        "title": title,
-        "info" : {BOOL : false}
-    }    
+    TableName: table,
+    Item: {
+        "title": "Juice",
+        "yearkey": 1992,
+        "info": {
+            "actors": [
+                "Omar Epps"
+            ],
+            "genres": [
+                "Crime",
+                "Drama",
+                "Thriller"
+            ]
+        }
+    }
 };
 
 console.log("Adding a new item...");
-docClient.put(params, function(err, data) {
+docClient.put(params, function (err, data) {
     if (err) {
         console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
     } else {

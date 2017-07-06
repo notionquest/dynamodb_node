@@ -1,4 +1,5 @@
 var AWS = require("aws-sdk");
+var dynoItemSize = require('dyno-item-size');
 var creds = new AWS.Credentials('akid', 'secret', 'session');
 
 AWS.config.update({
@@ -15,8 +16,8 @@ var params = {
 	TableName : table,
 	Item : {
 		"autoID" : "yyy",
-		"alexandriaID" : "id1",
-		"docType" : "foo",
+		"alexandriaID" : "id3",
+		"docType" : "boo",
 		"username" : "good",
 		"userdescription" : "user description",
 		"comment" : "complex condition"
@@ -24,6 +25,7 @@ var params = {
 };
 
 console.log("Adding a new item...");
+console.log("Size of item =====>" + dynoItemSize(params.Item));
 docClient.put(params, function(err, data) {
 	if (err) {
 		console.error("Unable to add item. Error JSON:", JSON.stringify(err,
