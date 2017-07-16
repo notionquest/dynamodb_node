@@ -13,7 +13,7 @@ var table = "Movies";
 
 var year = 2017;
 //var title = "The Big New Movie 2012 2";
-var title = "Callback test";
+var title = "putitem data test 1";
 var recordObj = {"K1": "V1" ,
 	    "K2": "V2" ,
 	    "K3": "V3" ,
@@ -37,7 +37,7 @@ var params = {
         "past_chats" : 0,
         "reset_time" : 1,*/
     },
-    ReturnValues : 'ALL_OLD'
+    ReturnValues : 'NONE'
 };
 
 console.log("Adding a new item...");

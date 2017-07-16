@@ -1,0 +1,26 @@
+[
+  {
+    "Create": {
+      "IndexName": "FeedIndex",
+      
+      "KeySchema": [
+        {
+          "AttributeName": "feed",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "status",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "INCLUDE",
+        "NonKeyAttributes": ["message"]
+      },
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+      }
+    }
+  }
+]
