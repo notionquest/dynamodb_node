@@ -14,7 +14,7 @@ var table = "usertable";
 var params = {
     TableName:table,
     Item:{
-        "userid": "hobb",
+        "userid": "manaf2",
         "score": 500,        
     }    
 };

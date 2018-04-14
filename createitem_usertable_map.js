@@ -14,8 +14,14 @@ var table = "usertable";
 var params = {
     TableName:table,
     Item:{
-        "userid": "hobb",
-        "score": 500,        
+        "userid": "John",
+        "score": 600,  
+        "sessions": [
+            {
+                "id": "123",
+                "foo": "bar"
+            }
+        ]    
     }    
 };
 

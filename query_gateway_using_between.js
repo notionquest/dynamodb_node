@@ -10,17 +10,15 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "Movies";
-
-var year_val = 2012;
-var title = "The Big New Movie 2012 2";
+var table = "gateway";
 
 var params = {
 	TableName : table,
-	KeyConditionExpression : 'yearkey = :hkey and title = :rkey',
+	KeyConditionExpression : 'device_id = :deviceIdVal and timestampAttr between :t1 and :t2',	
 	ExpressionAttributeValues : {
-		':hkey' : 2012,
-		':rkey' : title
+		':deviceIdVal' : 'd1',
+        ':t1' : 20170101,
+        ':t2' : 20171231
 	}
 };
 

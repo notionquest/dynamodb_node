@@ -7,19 +7,37 @@ AWS.config.update({
     credentials: creds
 });
 
-var docClient = new AWS.DynamoDB.DocumentClient();
+var dynamoDB = new AWS.DynamoDB;
 
 var table = "post";
 
 var params = {
     TableName: table,
     Item: {
-        "postId": '11'
+        "postId": {
+            S: "14"
+        },
+        "Session": {
+            S: "b6ba8b6d-ce27-4585-aee5-b9a2393e54da"
+        },
+        "Pos": {
+            M: {
+                "X": {
+                    S: "-16.8"
+                },
+                "Y": {
+                    S: "-4.492812"
+                }
+            }
+        },
+        "Time": {
+            S: "7/27/2017 3:21:25 PM"
+        }
     }
 };
 
 console.log("Adding a new item...");
-docClient.put(params, function (err, data) {
+dynamoDB.putItem(params, function (err, data) {
     if (err) {
         console.error("Unable to add item. Error JSON:", JSON.stringify(err,
             null, 2));

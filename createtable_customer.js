@@ -8,14 +8,12 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName : "device",
+    TableName : "customer",
     KeySchema: [       
-        { AttributeName: "deviceid", KeyType: "HASH"},  //Partition key
-        { AttributeName: "datetime", KeyType: "RANGE"}  
+        { AttributeName: "customerId", KeyType: "HASH"}
     ],
     AttributeDefinitions: [       
-        { AttributeName: "deviceid", AttributeType: "S" },
-        { AttributeName: "datetime", AttributeType: "S" }
+        { AttributeName: "customerId", AttributeType: "S" },
     ],
     ProvisionedThroughput: {       
         ReadCapacityUnits: 10, 

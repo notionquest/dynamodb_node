@@ -9,13 +9,13 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "usertable";
+var table = "users";
 
 var params = {
     TableName:table,
     Item:{
-        "userid": "hobb",
-        "score": 500,        
+        "email": "xxx4.xxx.com",
+        "purchasedDate" : "11-02-2017 10:11:12"
     }    
 };
 

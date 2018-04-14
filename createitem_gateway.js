@@ -9,13 +9,14 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "usertable";
+var table = "gateway";
+
 
 var params = {
     TableName:table,
     Item:{
-        "userid": "hobb",
-        "score": 500,        
+    	"device_id" : "d1",
+    	"timestampAttr" : 20171005
     }    
 };
 

@@ -9,13 +9,19 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "usertable";
+var table = "Movies";
+
+var year = 2017;
+var title = "error movie";
+var user1 =  {"profile.title":"abc"} ;
+
 
 var params = {
     TableName:table,
     Item:{
-        "userid": "hobb",
-        "score": 500,        
+        "yearkey": year,
+        "title": title,
+        "status" : 'error'
     }    
 };
 

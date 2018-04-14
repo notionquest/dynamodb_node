@@ -10,13 +10,12 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "tablex";
+var table = "post";
 
 var params = {
     TableName: table,
     Key:{
-        "primary_key1": "p1",
-        "sort_key1": "s1"
+        "postId": "14"        
     },
     
 };

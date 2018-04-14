@@ -8,20 +8,20 @@ AWS.config.update({
   credentials: creds
 });
 
-var docClient = new AWS.DynamoDB.DocumentClient();
+var dynamodb = new AWS.DynamoDB();
 
-var table = "tablex";
+var table = "Movies";
 
 var params = {
     TableName: table,
     Key:{
-        "primary_key1": "p1",
-        "sort_key1": "s1"
-    },
+        "yearkey": {N: "1990"},
+        "title": {S : "Movie with list of strings using var 3"}
+    }
     
 };
 
-docClient.get(params, function(err, data) {
+dynamodb.getItem(params, function(err, data) {
     if (err) {
         console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
     } else {

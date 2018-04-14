@@ -7,20 +7,25 @@ AWS.config.update({
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
-var table = "table4";
+var table = "Movies";
 
-var userid = "ME 21";
-var ts = null;
+var year = 1990;
+var title = "Movie with list of strings using var 3";
 
 var params = {
-	TableName : table,
-	Item : {
-		"userid" : userid,
-		"ts" : 1509353619
+    TableName:table,
+    Item:{
+        "yearkey": year,
+        "title": title      
+    },    
+    ConditionExpression : "yearkey <> :yearVal AND title <> :titleVal",
+	ExpressionAttributeValues : {
+        ":yearVal" : year,
+        ":titleVal" : title,
 	}
 };
 
-console.log("Adding a new item...");
+console.log("Adding a new item conditionally...");
 docClient.put(params, function(err, data) {
 	if (err) {
 		console.error("Unable to add item. Error JSON:", JSON.stringify(err,

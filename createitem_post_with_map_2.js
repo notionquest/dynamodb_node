@@ -14,7 +14,10 @@ var table = "post";
 var params = {
     TableName: table,
     Item: {
-        "postId": '11'
+        "postId": '15',
+        "Pos": {            
+               "key": "1a", "a": "1"            
+        }
     }
 };
 

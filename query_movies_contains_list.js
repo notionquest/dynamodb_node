@@ -30,5 +30,6 @@ docClient.query(params, function(err, data) {
 				null, 2));
 	} else {
 		console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+		console.log(data);
 	}
 });

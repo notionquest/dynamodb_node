@@ -14,7 +14,23 @@ var table = "post";
 var params = {
     TableName: table,
     Item: {
-        "postId": '11'
+        "postId": '14',
+        "Session": {
+            "S": "b6ba8b6d-ce27-4585-aee5-b9a2393e54da"
+        },
+        "Pos": {
+            "M": {
+                "X": {
+                    "S": "-16.8"
+                },
+                "Y": {
+                    "S": "-4.492812"
+                }
+            }
+        },
+        "Time": {
+            "S": "7/27/2017 3:21:25 PM"
+        }
     }
 };
 

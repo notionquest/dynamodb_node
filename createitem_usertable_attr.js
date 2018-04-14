@@ -14,9 +14,12 @@ var table = "usertable";
 var params = {
     TableName:table,
     Item:{
-        "userid": "hobb",
-        "score": 500,        
-    }    
+        "userid": "Mike",
+        "score": 100,    
+        imageName : "elephant.jpg"      
+        //"imagePath" : "/path/to/image"   
+    },   
+    //ConditionExpression : "attribute_exists(userid) AND attribute_exists(imageName)"
 };
 
 console.log("Adding a new item...");

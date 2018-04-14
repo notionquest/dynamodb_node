@@ -1,21 +1,23 @@
 var AWS = require("aws-sdk");
+var creds = new AWS.Credentials('akid', 'secret', 'session');
 
 AWS.config.update({
   region: "us-west-2",
-  endpoint: "http://localhost:8000"
+  endpoint: "http://localhost:8000",
+  credentials : creds
 });
 
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName : "device",
+    TableName : "Order_New",
     KeySchema: [       
-        { AttributeName: "deviceid", KeyType: "HASH"},  //Partition key
-        { AttributeName: "datetime", KeyType: "RANGE"}  
+        { AttributeName: "orderId", KeyType: "HASH"}
+        
     ],
     AttributeDefinitions: [       
-        { AttributeName: "deviceid", AttributeType: "S" },
-        { AttributeName: "datetime", AttributeType: "S" }
+        { AttributeName: "orderId", AttributeType: "S" },
+        { AttributeName: "type", AttributeType: "S" }    
     ],
     ProvisionedThroughput: {       
         ReadCapacityUnits: 10, 

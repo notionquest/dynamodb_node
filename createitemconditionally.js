@@ -9,26 +9,26 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 var table = "Movies";
 
-var year = 20155;
+var year = 1502;
 var title = "The Big New Movie";
 
 var params = {
     TableName:table,
     Item:{
-        "year": year,
+        "yearkey": year,
         "title": title,
         "info":{
             "plot": "Nothing happens at all.",
             "rating": 0
         }
     },
-    //ConditionExpression: "contains (#title, :title)",
-    ConditionExpression: "#title <>  :title",
+    ConditionExpression: "yearkey <> :yearKeyVal AND #title <>  :title",
     ExpressionAttributeNames: { 
         "#title" : "title" 
      },
     ExpressionAttributeValues: {
-        ":title": {"S": "The Big New Movie"}
+        ":yearKeyVal" : year,
+        ":title": {"S": title}
     }
 };
 

@@ -8,14 +8,14 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName : "device",
+    TableName : "subscription",
     KeySchema: [       
-        { AttributeName: "deviceid", KeyType: "HASH"},  //Partition key
-        { AttributeName: "datetime", KeyType: "RANGE"}  
+        { AttributeName: "emailId", KeyType: "HASH"},
+        	{	AttributeName: "subscriptionId", KeyType: "RANGE"}  //Partition key
     ],
     AttributeDefinitions: [       
-        { AttributeName: "deviceid", AttributeType: "S" },
-        { AttributeName: "datetime", AttributeType: "S" }
+        { AttributeName: "emailId", AttributeType: "S" },
+        { AttributeName: "subscriptionId", AttributeType: "S" }
     ],
     ProvisionedThroughput: {       
         ReadCapacityUnits: 10, 

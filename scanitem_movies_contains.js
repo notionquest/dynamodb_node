@@ -10,16 +10,13 @@ AWS.config.update({
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 var params = {
-    TableName: "post",
-    FilterExpression: "contains (tags, :tag1) OR  contains (tags, :tag2)",
+    TableName: "Movies",
+    FilterExpression: "contains (title, :titleVal)",
     ExpressionAttributeValues: {
-        ":tag1": 'B',
-        ":tag2": 'D'
-    },
-    ReturnConsumedCapacity : 'TOTAL'
+        ":titleVal": "somevalue"
+    }
 };
 
-console.log("Scanning Post table.");
 docClient.scan(params, onScan);
 
 function onScan(err, data) {
@@ -27,7 +24,6 @@ function onScan(err, data) {
         console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
     } else {
         console.log("Scan succeeded.");
-        console.log("Item :", JSON.stringify(data, null, 2));
         data.Items.forEach(function (printItem) {
             console.log("Item :", JSON.stringify(printItem));
         });

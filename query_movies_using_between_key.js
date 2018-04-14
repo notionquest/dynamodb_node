@@ -25,18 +25,6 @@ var params = {
 	}
 };
 
-
-var params = {
-	TableName: 'REPORT_CARD',
-
-	KeyConditionExpression: "parition_key_attr = :partition_val #timestamp BETWEEN :startDate AND :endDate",
-	ExpressionAttributeNames: { "#timestamp": "timestamp", },
-	ExpressionAttributeValues: {
-		':partition_val': "somevalue",
-		":startDate": startDate,
-		":endDate": endDate
-	}     
-
 docClient.query(params, function (err, data) {
 		if (err) {
 			console.error("Unable to read item. Error JSON:", JSON.stringify(err,
